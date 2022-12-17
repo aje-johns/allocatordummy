@@ -1,0 +1,21 @@
+while (remainingSigningsTEMP.length > 0) {
+  console.log("remainingSigningsTEMP -- Check");
+
+  // this is where the infinate loop happens
+  userObj.forEach((user) => {
+    console.log("current user is");
+    console.log(user);
+
+    if (user.allocatedUMR == 0) {
+      console.log(`the user ${user.userName} will have its First Allocation`);
+      let signingsToBeAllocated = remainingSigningsTEMP.pop();
+      user.allocatedUMR = signingsToBeAllocated;
+      user.totalCount = signingsToBeAllocated.duplicateEntries;
+      return;
+    } else if (user.allocatedUMR > 0) {
+      //Time for second set of allocation
+      console.log("The while condition");
+      remainingSigningsTEMP = ["fask"];
+    } // end of Else
+  });
+}
